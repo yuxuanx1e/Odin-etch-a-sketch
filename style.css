@@ -1,18 +1,19 @@
 :root {
     --grid-cols: 1;
     --grid-rows: 1;
+    background-color:dimgray;
   }
   
   #container {
     display: grid;
     padding: 0.5em;
-    grid-gap: 0.2em;
+    grid-gap: 0em;
     height: 960px;
     width: 960px;
     grid-template-rows: repeat(var(--grid-rows), 1fr);
     grid-template-columns: repeat(var(--grid-cols), 1fr);
 
-    background-color: red;
+    background-color: white;
   }
   
   .grid-item {
@@ -25,10 +26,10 @@
     color: blue; */
     
     /* margin: 0.2em; */
-    border: 1px solid #ddd;
+    /* border: 1px solid #ddd; */
 
   }
 
   .my-color-class {
-    background-color: blue;
+    background-color: white;
   }
