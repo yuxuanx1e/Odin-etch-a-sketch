@@ -180,12 +180,20 @@ function resizeButtonClick() {
 const container = document.getElementById("container");
 const resizeButton = document.querySelector('#resizeButton');
 const clearButton = document.querySelector('#clearButton');
-//const coloredCell = document.querySelectorAll('#my-color-class'); 
+const toggleSwitch = document.querySelector('.switch');
+
 
 let canvasSize = 16; 
-let rainbowMode = true; 
+let rainbowMode = false; 
 
 makeCanvas(canvasSize, canvasSize);
 
 resizeButton.addEventListener('click',()=>resizeButtonClick());
 clearButton.addEventListener('click',()=>resetCanvas());
+toggleSwitch.addEventListener("change", function (event) {
+  if (event.target.checked) {
+      rainbowMode = true; 
+  } else {
+      rainbowMode = false; 
+  }
+});
