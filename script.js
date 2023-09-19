@@ -104,7 +104,7 @@ function paintCell(cell){
 
   // Check the paint mode
   if(!rainbowMode){
-    cell.style.backgroundColor = "#00FFF0";
+    cell.style.backgroundColor = userPickedColor;
   }else{
     cell.style.backgroundColor = getRandomRgbColor();
   }
@@ -181,10 +181,12 @@ const container = document.getElementById("container");
 const resizeButton = document.querySelector('#resizeButton');
 const clearButton = document.querySelector('#clearButton');
 const toggleSwitch = document.querySelector('.switch');
+const colorPicker = document.getElementById("color-picker");
 
 
 let canvasSize = 16; 
 let rainbowMode = false; 
+let userPickedColor = '#000000'; 
 
 makeCanvas(canvasSize, canvasSize);
 
@@ -196,4 +198,11 @@ toggleSwitch.addEventListener("change", function (event) {
   } else {
       rainbowMode = false; 
   }
+});
+
+
+
+colorPicker.addEventListener("input", function() {
+  userPickedColor = this.value; 
+  //image.style.filter = `hue-rotate(${this.value}deg)`;
 });
