@@ -1,25 +1,65 @@
 <!DOCTYPE html>
-
+<html lang="en">
 <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Etch-a-Sketch</title>
-    <link rel="stylesheet" type="text/css" href="style.css">
-    <script type="text/javascript" src="script.js" defer></script>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <!-- <link rel="shortcut icon" href="images/barberry.png" /> -->
+    <link rel="shortcut icon" href="favicon.ico" />
+    <script src="https://kit.fontawesome.com/a1bebf060e.js" crossorigin="anonymous"></script>
 </head>
 
+
 <body>
-    <button id="resizeButton">Change Canvas Size</button>
-    <button id="clearButton">Clear</button>
+  <!-- Header -->
+    <header class="header">
+        <h1 class="title">Etch-a-sketch</h1>
+    </header>
 
-    <!-- Rounded switch -->
-    <h2>Rainbow Mode</h2>
-    <label class="switch">
-        <input type="checkbox">
-        <span class="slider round"></span>
-    </label>
+    <main class="main">
+        <!-- Drawing settings/controls -->
+        <div class="settings">
+          <!-- Range slider for canvas size -->
+            <h3>Canvas Size</h3>
+            <p><span class="range-value">16</span> x <span class="range-value">16</span></p>
+            <div class="slider-box">
+                <input type="range" value="16" min="1" max="100" id="range-slider" autocomplete="off"> 
+            </div>
 
-    <label for="color-picker">Select a color:</label>
-    <input id="color-picker" type="color">
-    
-    <div id="container"></div>
+            <!-- Rounded Toggle switch -->
+            <h3>Rainbow Mode</h3>
+            <label class="switch">
+                <input type="checkbox" autocomplete="off">
+                <span class="slider round"></span>
+            </label>
+
+            <!-- Color picker-->
+            <h3 for="color-picker">Select a color</h3>
+            <input id="color-picker" type="color" autocomplete="off">
+
+            <button id="clearButton">Clear</button>
+        </div>
+        
+        <!-- Canvas -->
+        <div id="container"></div>
+    </main>
+
+    <!-- Footer-->
+    <footer class="footer">
+        <p>
+          Copyright ©
+          <script>
+            document.write(new Date().getFullYear())
+          </script>
+          yuxuanx1e
+        </p>
+        <a href="https://github.com/yuxuanx1e" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+    </footer>
 
 </body>
+</html>

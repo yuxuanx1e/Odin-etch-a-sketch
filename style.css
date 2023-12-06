@@ -1,26 +1,86 @@
 :root {
-    --grid-cols: 1;
-    --grid-rows: 1;
-    background-color:peru;
-  }
+  --primary-dark: #222831;
+  --background-color:#ededed; 
+  --grid-cols: 1;
+  --grid-rows: 1;
+
+}
+
+html {
+  /* footer support */
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+
+  background-color: var(--background-color);
+  font-family: 'Roboto', sans-serif;
+  /* footer support */
+  margin: 0px 0px 100px 0px;
+}
+ 
+
+h1{
+  margin-top: 0px;
+  padding: 25px;
+  text-align: center;
+  font-size: 3em;
+}
+
+.main {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 100px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  width: 200px;
+}
+
+#container {
+  display: grid;
+  grid-gap: 0em;
+  height: 600px;
+  width: 600px;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
   
-  #container {
-    display: grid;
-    padding: 0.5em;
-    grid-gap: 0em;
-    height: 960px;
-    width: 960px;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
 
-    background-color: white;
-  }
-  
+/* Button */ 
+button {
+  background-color: var(--primary-dark);
+  color: white; 
+  border: 2px solid var(--primary-dark); 
+  border-radius: 8px;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 16px;
+  transition-duration: 0.4s;
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+}
 
 
-  /* Toggle Switch */
+button:hover {
+  background-color: white; /* Green */
+  color: var(--primary-dark);
+}
 
-  /* The switch - the box around the slider */
+
+/* Toggle Switch */
+/* The switch - the box around the slider */
 .switch {
   position: relative;
   display: inline-block;
@@ -81,4 +141,30 @@ input:checked + .slider:before {
 
 .slider.round:before {
   border-radius: 50%;
+}
+
+
+/* FOOTER */
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  font-size: 20px;
+}
+
+.fa-github {
+  color: var(--primary-dark);
+  font-size: 24px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.fa-github:hover {
+  transform: rotate(360deg) scale(1.2);
 }

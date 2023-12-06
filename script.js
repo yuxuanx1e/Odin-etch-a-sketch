@@ -158,40 +158,38 @@ function resetCanvas() {
   return;
 }
 
-// Resize the canvas
-function resizeButtonClick() {
-  while(1){
-    canvasSize = prompt("Please enter the desired canvas size (Min:1x1, Max:100x100):", 16);
-    if (canvasSize >=1 && canvasSize<=100) {
-
-      resetCanvas();
-      return;
-
-    }
-  }
+// Resize the canvas when user drags the slider
+function resizeCanvas(){
+  rangeDisplay[0].innerHTML = slider.value; // Display the slider value
+  rangeDisplay[1].innerHTML = slider.value; 
+  canvasSize = slider.value; // Update canvas size
+  resetCanvas();
 }
-
-
-
-
 
 //====================================== Main =================================================
 // Select existing elements in DOM
 const container = document.getElementById("container");
-const resizeButton = document.querySelector('#resizeButton');
 const clearButton = document.querySelector('#clearButton');
 const toggleSwitch = document.querySelector('.switch');
 const colorPicker = document.getElementById("color-picker");
+const slider = document.getElementById("range-slider");
+const rangeDisplay = document.getElementsByClassName("range-value");
+rangeDisplay[0].innerHTML = slider.value; // Display the default slider value
+rangeDisplay[1].innerHTML = slider.value; // Display the default slider value
 
-
+// Variables
 let canvasSize = 16; 
 let rainbowMode = false; 
 let userPickedColor = '#000000'; 
 
 makeCanvas(canvasSize, canvasSize);
 
-resizeButton.addEventListener('click',()=>resizeButtonClick());
+
+// Event listeners
+// Clear button 
 clearButton.addEventListener('click',()=>resetCanvas());
+
+// Rainbow mode toggle switch
 toggleSwitch.addEventListener("change", function (event) {
   if (event.target.checked) {
       rainbowMode = true; 
@@ -200,9 +198,11 @@ toggleSwitch.addEventListener("change", function (event) {
   }
 });
 
-
-
+// Color picker
 colorPicker.addEventListener("input", function() {
   userPickedColor = this.value; 
-  //image.style.filter = `hue-rotate(${this.value}deg)`;
 });
+
+// Range slider
+// Update the slider value (each time you drag the slider handle) and canvas size
+slider.addEventListener("input", ()=>resizeCanvas()); 
